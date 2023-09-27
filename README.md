@@ -12,9 +12,9 @@ In diesem Projekt erstellen Sie eine Tourio-App, den besten Freund aller Reisend
 
 ### Formular erstellen
 
-- Schreiben Sie in „pages/create.js“ die Funktion „addPlace“, um eine „POST“-Anfrage zu starten.
+e- Schreiben Sie in git status„pages/create.js“ die Funktion „addPlace“, um eine „POST“-Anfrage zu starten.
 - Schreiben Sie die „POST“-API-Route in „pages/api/places/index.js“.
-- Durch das Absenden des Formulars sollte der Benutzer zur Homepage „/“ weitergeleitet werden.
+- Durch das Absnden des Formulars sollte der Benutzer zur Homepage „/“ weitergeleitet werden.
 
 ### Eintrag aktualisieren
 
