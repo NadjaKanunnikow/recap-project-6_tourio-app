@@ -2,7 +2,6 @@ import Place from "@/db/models/Place";
 import dbConnect from "@/db/dbConnect";
 
 export default async function handler(request, response) {
-  try {
   await dbConnect();
   const { id } = request.query;
 
@@ -17,20 +16,19 @@ export default async function handler(request, response) {
       return response.status(404).json({ status: "Not found" });
     }
 
-   return response.status(200).json(place);
+   response.status(200).json(place);
   }
   
-
-
   if (request.method === "PUT") {
-    const newPlaceData = request.body;
-    await Place.findByIdAndUpdate(id, newPlaceData);
-    return response.status(200).json({ status: "Entry updated" });
-    
+    const placeData = request.body;
+    await Place.findByIdAndUpdate(id, placeData);
+
+    response.status(200).json({ status: "Entry updated" });
+  
   }
-    return response.status(405).json({ status: "Method Not Allowed" });
-  } catch (error) {
-    console.error("An error occurred:", error);
-    return response.status(500).json({ status: "Internal Server Error" });
+    if (request.method === "DELETE") {
+    await Place.findByIdAndDelete(id);
+   response.status(200).json({ status: `Place deleted.` });
+  
   }
 }
