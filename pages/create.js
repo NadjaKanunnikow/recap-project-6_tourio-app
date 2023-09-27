@@ -15,8 +15,6 @@ export default function CreatePlacePage() {
   
   async function addPlace(place) {
    
-    
-
     const response = await fetch("/api/places", {
       method: "POST",
       headers: {
